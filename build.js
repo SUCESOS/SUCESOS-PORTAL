@@ -42,7 +42,55 @@ for (const a of articles) {
 }
 const cards = articles.map(a=>`<a class="card" href="${escapeHtml(a.url)}">${a.image?`<img loading="lazy" src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}">`:''}<div class="card-body"><span class="badge">${escapeHtml(a.category.toUpperCase())}</span><h2>${escapeHtml(a.title)}</h2><div class="meta">${escapeHtml(formatDate(a.date))}</div><p>${escapeHtml(a.description.slice(0,175))}${a.description.length>175?'…':''}</p></div></a>`).join('');
 const legacy = `<a class="card" href="/politica/felix-descarta-registro-hijas-morena-acapulco-iguala/"><img loading="lazy" src="/imagenes/felix-salgado.jpg" alt="Félix Salgado"><div class="card-body"><span class="badge">POLÍTICA</span><h2>Félix descarta a sus hijas en la disputa de Morena por Acapulco e Iguala</h2><div class="meta">25 de octubre de 2026</div><p>El senador negó que sus hijas se hayan registrado para las coordinaciones municipales de Morena.</p></div></a>`;
-const home = `<main><h1>Últimas noticias</h1><div class="grid">${cards}${fs.existsSync(path.join(root,'politica','felix-descarta-registro-hijas-morena-acapulco-iguala','index.html'))?legacy:''}</div>${articles.length?'':'<p>Las noticias aparecerán aquí después de publicarlas desde el administrador.</p>'}</main>`;
+const principal = articles[0];
+const destacadas = articles.slice(1, 5);
+const restantes = articles.slice(5);
+
+const tarjeta = a => `
+<a class="card" href="${escapeHtml(a.url)}">
+  ${a.image ? `<img loading="lazy" src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}">` : ''}
+  <div class="card-body">
+    <span class="badge">${escapeHtml(a.category.toUpperCase())}</span>
+    <h2>${escapeHtml(a.title)}</h2>
+    <div class="meta">${escapeHtml(formatDate(a.date))}</div>
+  </div>
+</a>`;
+
+const home = `
+<main>
+  <h1 style="border-left:6px solid #bd0b1a;padding-left:15px">
+    SUCESOS | Las noticias que importan
+  </h1>
+
+  ${principal ? `
+  <section style="margin-bottom:35px">
+    <a href="${escapeHtml(principal.url)}" style="display:block;background:#111;color:white">
+      ${principal.image ? `<img src="${escapeHtml(principal.image)}" alt="${escapeHtml(principal.title)}" style="width:100%;max-height:480px;object-fit:cover">` : ''}
+      <div style="padding:25px">
+        <span class="badge">${escapeHtml(principal.category.toUpperCase())}</span>
+        <h2 style="font-size:clamp(28px,4vw,42px);margin:15px 0">
+          ${escapeHtml(principal.title)}
+        </h2>
+        <p>${escapeHtml(principal.description)}</p>
+      </div>
+    </a>
+  </section>
+  ` : ''}
+
+  <h2>Noticias destacadas</h2>
+  <div class="grid">
+    ${destacadas.map(tarjeta).join('')}
+  </div>
+
+  ${restantes.length ? `
+    <h2 style="margin-top:45px">Más noticias</h2>
+    <div class="grid">
+      ${restantes.map(tarjeta).join('')}
+    </div>
+  ` : ''}
+
+  ${articles.length === 0 ? '<p>Las noticias aparecerán aquí después de publicarlas desde el administrador.</p>' : ''}
+</main>`;
 save(path.join(out,'index.html'),shell({title:'Noticias de Guerrero y México',description:'SUCESOS Prensa Digital. Información de Guerrero, política, municipios, seguridad y actualidad.',content:home}));
 const urls=[origin+'/',...articles.map(a=>origin+a.url)];
 save(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${escapeHtml(u)}</loc></url>`).join('')}</urlset>`);

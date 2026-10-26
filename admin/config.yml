@@ -1,0 +1,53 @@
+backend:
+  name: github
+  repo: SUCESOS/SUCESOS-PORTAL
+  branch: main
+
+media_folder: "imagenes"
+public_folder: "/imagenes"
+
+locale: "es"
+
+publish: false
+
+collections:
+  - name: "noticias"
+    label: "Noticias"
+    folder: "noticias"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
+    fields:
+      - label: "Título"
+        name: "title"
+        widget: "string"
+
+      - label: "Fecha"
+        name: "date"
+        widget: "datetime"
+
+      - label: "Categoría"
+        name: "category"
+        widget: "select"
+        options:
+          - "Política"
+          - "Guerrero"
+          - "Municipios"
+          - "Seguridad"
+          - "Nacional"
+          - "Opinión"
+
+      - label: "Fotografía principal"
+        name: "image"
+        widget: "image"
+        required: false
+
+      - label: "Resumen"
+        name: "description"
+        widget: "text"
+
+      - label: "Contenido de la noticia"
+        name: "body"
+        widget: "markdown"

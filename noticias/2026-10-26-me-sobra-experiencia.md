@@ -2,7 +2,7 @@
 title: "ME SOBRA EXPERIENCIA "
 date: 2026-10-26T15:48:00.000-06:00
 category: Política
-image: /imagenes/jsaldaña3.jpg
+image: /imagenes/salmaña.jpg
 description: >-
   El exrector de la UAGro aseguró que recibió ataques políticos de sus propios
   compañeros de Morena durante la contienda por la coordinación estatal de la

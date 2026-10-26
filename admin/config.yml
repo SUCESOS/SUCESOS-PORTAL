@@ -2,7 +2,9 @@ backend:
   name: github
   repo: SUCESOS/SUCESOS-PORTAL
   branch: main
-
+  base_url: https://sucesos-auth.prensadigitalsuceso.workers.dev
+  auth_endpoint: auth
+  
 media_folder: "imagenes"
 public_folder: "/imagenes"
 

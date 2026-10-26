@@ -7,6 +7,7 @@ backend:
   
 media_folder: "imagenes"
 public_folder: "/imagenes"
+site_url: https://sucesos-portal.pages.dev
 
 locale: "es"
 

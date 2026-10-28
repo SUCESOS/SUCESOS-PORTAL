@@ -22,7 +22,17 @@ const ogImage = image ? `
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${escapeHtml(absolute(image))}">
 ` : '';
-  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#b90917"><title>${escapeHtml(title)} | SUCESOS</title><meta name="description" content="${escapeHtml(clean(description).slice(0,220))}"><link rel="canonical" href="${escapeHtml(canonical)}"><meta property="og:type" content="${type}"><meta property="og:site_name" content="SUCESOS Prensa Digital"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(clean(description).slice(0,220))}"><meta property="og:url" content="${escapeHtml(canonical)}">${ogImage}<style>*{box-sizing:border-box}body{margin:0;background:#f5f5f5;color:#171717;font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}header{background:#111;color:#fff;padding:24px 20px}.wrap{max-width:1100px;margin:auto}.brand{font-size:clamp(40px,6vw,64px);font-weight:900;letter-spacing:-3px;text-shadow:0 -3px #c20c1b}.brand small{display:block;font-size:10px;letter-spacing:4px;text-shadow:none;font-weight:500;border-top:3px solid #c20c1b;padding-top:8px;width:max-content}nav{background:#bd0b1a;color:#fff;padding:13px 20px;font-weight:bold}main{max-width:1100px;margin:32px auto 70px;padding:0 20px}h1{line-height:1.15}img{display:block;max-width:100%}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:#fff;box-shadow:0 2px 15px #0000000d;overflow:hidden}.card img{width:100%;aspect-ratio:16/10;object-fit:cover}.card-body{padding:20px}.badge{display:inline-block;background:#bc0b19;color:white;font-size:12px;font-weight:bold;padding:7px 10px}.card h2{font-size:22px;line-height:1.25}.card p{line-height:1.5;color:#555}.meta{color:#777;font-size:13px;margin:12px 0}.story{max-width:820px;margin:auto;background:white;padding:clamp(20px,4vw,45px);box-shadow:0 2px 15px #0000000d}.story h1{font-size:clamp(29px,5vw,49px)}.story .intro{font-size:20px;line-height:1.5;font-weight:600}.story figure{margin:24px 0}.story figure img{width:100%;height:auto}.story-body p,.story-body li{font-size:18px;line-height:1.85}.story-body a{color:#b50919;text-decoration:underline}.back{display:inline-block;margin-top:25px;color:#b50919;font-weight:bold}footer{background:#111;color:#bbb;padding:28px 20px;font-size:13px}@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){.grid{grid-template-columns:1fr}}</style></head><body><header><div class="wrap"><a href="/" class="brand">sucesos<small>PRENSA DIGITAL</small></a></div></header><nav><div class="wrap"><a href="/">INICIO</a> &nbsp; / &nbsp; GUERRERO · MÉXICO</div></nav>${content}<footer><div class="wrap">SUCESOS · Prensa Digital · La información que importa</div></footer></body></html>`;
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#b90917"><title>${escapeHtml(title)} | SUCESOS</title><meta name="description" content="${escapeHtml(clean(description).slice(0,220))}"><link rel="canonical" href="${escapeHtml(canonical)}"><meta property="og:type" content="${type}"><meta property="og:site_name" content="SUCESOS Prensa Digital"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(clean(description).slice(0,220))}"><meta property="og:url" content="${escapeHtml(canonical)}">${ogImage}<style>*{box-sizing:border-box}body{margin:0;background:#f5f5f5;color:#171717;font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}header{background:#111;color:#fff;padding:24px 20px}.wrap{max-width:1100px;margin:auto}.brand{font-size:clamp(40px,6vw,64px);font-weight:900;letter-spacing:-3px;text-shadow:0 -3px #c20c1b}.brand small{display:block;font-size:10px;letter-spacing:4px;text-shadow:none;font-weight:500;border-top:3px solid #c20c1b;padding-top:8px;width:max-content}nav{background:#bd0b1a;color:#fff;padding:13px 20px;font-weight:bold}main{max-width:1100px;margin:32px auto 70px;padding:0 20px}h1{line-height:1.15}img{display:block;max-width:100%}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:#fff;box-shadow:0 2px 15px #0000000d;overflow:hidden}.card img{width:100%;aspect-ratio:16/10;object-fit:cover}.card-body{padding:20px}.badge{display:inline-block;background:#bc0b19;color:white;font-size:12px;font-weight:bold;padding:7px 10px}.card h2{font-size:22px;line-height:1.25}.card p{line-height:1.5;color:#555}.meta{color:#777;font-size:13px;margin:12px 0}.story{max-width:820px;margin:auto;background:white;padding:clamp(20px,4vw,45px);box-shadow:0 2px 15px #0000000d}.story h1{font-size:clamp(29px,5vw,49px)}.story .intro{font-size:20px;line-height:1.5;font-weight:600}.story figure{margin:24px 0}.story figure img{width:100%;height:auto}.story-body p,.story-body li{font-size:18px;line-height:1.85}.story-body a{color:#b50919;text-decoration:underline}.back{display:inline-block;margin-top:25px;color:#b50919;font-weight:bold}footer{background:#111;color:#bbb;padding:28px 20px;font-size:13px}@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:540px){.grid{grid-template-columns:1fr}}</style></head><body><header><div class="wrap"><a href="/" class="brand">sucesos<small>PRENSA DIGITAL</small></a></div></header><nav>
+  <div class="wrap" style="display:flex;gap:22px;flex-wrap:wrap;align-items:center">
+    <a href="/">INICIO</a>
+    <a href="/categoria/guerrero/">GUERRERO</a>
+    <a href="/categoria/politica/">POLÍTICA</a>
+    <a href="/categoria/municipios/">MUNICIPIOS</a>
+    <a href="/categoria/seguridad/">SEGURIDAD</a>
+    <a href="/categoria/nacional/">NACIONAL</a>
+    <a href="/categoria/internacional/">INTERNACIONAL</a>
+  </div>
+</nav>${content}<footer><div class="wrap">SUCESOS · Prensa Digital · La información que importa</div></footer></body></html>`;
 }
 fs.rmSync(out, {recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
 for (const name of ['admin','imagenes','politica','robots.txt','favicon.ico']) copy(path.join(root,name),path.join(out,name));
@@ -125,6 +135,46 @@ ${principal ? `
   ${articles.length === 0 ? '<p>Las noticias aparecerán aquí después de publicarlas desde el administrador.</p>' : ''}
 </main>`;
 save(path.join(out,'index.html'),shell({title:'Noticias de Guerrero y México',description:'SUCESOS Prensa Digital. Información de Guerrero, política, municipios, seguridad y actualidad.',content:home}));
+const categorias = [
+  'Guerrero',
+  'Política',
+  'Municipios',
+  'Seguridad',
+  'Nacional',
+  'Internacional'
+];
+
+for (const categoria of categorias) {
+  const noticiasCategoria = articles.filter(
+    a => slug(a.category) === slug(categoria)
+  );
+
+  const contenido = `
+    <main>
+      <h1 style="border-left:6px solid #bd0b1a;padding-left:15px">
+        ${escapeHtml(categoria.toUpperCase())}
+      </h1>
+
+      <div class="grid">
+        ${noticiasCategoria.map(tarjeta).join('')}
+      </div>
+
+      ${noticiasCategoria.length === 0
+        ? '<p>Próximamente publicaremos noticias en esta sección.</p>'
+        : ''}
+    </main>
+  `;
+
+  save(
+    path.join(out, 'categoria', slug(categoria), 'index.html'),
+    shell({
+      title: categoria,
+      description: `Noticias de ${categoria} en SUCESOS Prensa Digital`,
+      canonical: origin + '/categoria/' + slug(categoria) + '/',
+      content: contenido
+    })
+  );
+}
 const urls=[origin+'/',...articles.map(a=>origin+a.url)];
 save(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u=>`<url><loc>${escapeHtml(u)}</loc></url>`).join('')}</urlset>`);
 console.log(`SUCESOS: ${articles.length} noticias generadas en dist/`);

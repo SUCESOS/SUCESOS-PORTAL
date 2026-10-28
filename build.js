@@ -35,7 +35,7 @@ const ogImage = image ? `
 </nav>${content}<footer><div class="wrap">SUCESOS · Prensa Digital · La información que importa</div></footer></body></html>`;
 }
 fs.rmSync(out, {recursive:true,force:true}); fs.mkdirSync(out,{recursive:true});
-for (const name of ['admin','imagenes','politica','robots.txt','favicon.ico','google17cceef0dfe6e9fa.html']) for (const name of ['admin','imagenes','politica','robots.txt','favicon.ico','google17cceef0dfe6e9fa.html']) copy(path.join(root,name),path.join(out,name));
+for (const name of ['admin','imagenes','politica','robots.txt','favicon.ico','google17cceef0dfe6e9fa.html']) copy(path.join(root,name),path.join(out,name));
 const dir = path.join(root,'noticias');
 const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f=>/\.md$/i.test(f)) : [];
 const articles = files.map(file => {

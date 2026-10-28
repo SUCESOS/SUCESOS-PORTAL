@@ -43,8 +43,8 @@ for (const a of articles) {
 const cards = articles.map(a=>`<a class="card" href="${escapeHtml(a.url)}">${a.image?`<img loading="lazy" src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}">`:''}<div class="card-body"><span class="badge">${escapeHtml(a.category.toUpperCase())}</span><h2>${escapeHtml(a.title)}</h2><div class="meta">${escapeHtml(formatDate(a.date))}</div><p>${escapeHtml(a.description.slice(0,175))}${a.description.length>175?'…':''}</p></div></a>`).join('');
 const legacy = `<a class="card" href="/politica/felix-descarta-registro-hijas-morena-acapulco-iguala/"><img loading="lazy" src="/imagenes/felix-salgado.jpg" alt="Félix Salgado"><div class="card-body"><span class="badge">POLÍTICA</span><h2>Félix descarta a sus hijas en la disputa de Morena por Acapulco e Iguala</h2><div class="meta">25 de octubre de 2026</div><p>El senador negó que sus hijas se hayan registrado para las coordinaciones municipales de Morena.</p></div></a>`;
 const principal = articles[0];
-const destacadas = articles.slice(1, 5);
-const restantes = articles.slice(5);
+const destacadas = articles.slice(3, 6);
+const restantes = articles.slice(6);
 
 const tarjeta = a => `
 <a class="card" href="${escapeHtml(a.url)}">
@@ -76,7 +76,54 @@ const home = `
     </a>
   </section>
   ` : ''}
+${principal ? `
+<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-bottom:35px">
 
+  <a href="${escapeHtml(principal.url)}"
+     style="display:block;background:#111;color:white;overflow:hidden">
+
+    ${principal.image ? `
+    <img src="${escapeHtml(principal.image)}"
+         alt="${escapeHtml(principal.title)}"
+         style="width:100%;height:340px;object-fit:cover">
+    ` : ''}
+
+    <div style="padding:20px">
+      <span class="badge">${escapeHtml(principal.category.toUpperCase())}</span>
+
+      <h2 style="font-size:clamp(25px,3vw,36px);line-height:1.15;margin:12px 0">
+        ${escapeHtml(principal.title)}
+      </h2>
+
+      <p>${escapeHtml(principal.description.slice(0,160))}</p>
+    </div>
+  </a>
+
+  <div style="display:grid;grid-template-rows:1fr 1fr;gap:16px">
+
+    ${articles.slice(1,3).map(a => `
+    <a href="${escapeHtml(a.url)}"
+       style="display:flex;background:white;overflow:hidden;box-shadow:0 2px 12px #00000012">
+
+      ${a.image ? `
+      <img src="${escapeHtml(a.image)}"
+           alt="${escapeHtml(a.title)}"
+           style="width:45%;object-fit:cover">
+      ` : ''}
+
+      <div style="padding:16px;flex:1;min-width:0">
+        <span class="badge">${escapeHtml(a.category.toUpperCase())}</span>
+
+        <h3 style="font-size:clamp(17px,2vw,23px);line-height:1.2">
+          ${escapeHtml(a.title)}
+        </h3>
+      </div>
+    </a>
+    `).join('')}
+
+  </div>
+</section>
+` : ''}
   <h2>Noticias destacadas</h2>
   <div class="grid">
     ${destacadas.map(tarjeta).join('')}

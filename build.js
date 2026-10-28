@@ -62,20 +62,6 @@ const home = `
     SUCESOS | Las noticias que importan
   </h1>
 
-  ${principal ? `
-  <section style="margin-bottom:35px">
-    <a href="${escapeHtml(principal.url)}" style="display:block;background:#111;color:white">
-      ${principal.image ? `<img src="${escapeHtml(principal.image)}" alt="${escapeHtml(principal.title)}" style="width:100%;max-height:480px;object-fit:cover">` : ''}
-      <div style="padding:25px">
-        <span class="badge">${escapeHtml(principal.category.toUpperCase())}</span>
-        <h2 style="font-size:clamp(28px,4vw,42px);margin:15px 0">
-          ${escapeHtml(principal.title)}
-        </h2>
-        <p>${escapeHtml(principal.description)}</p>
-      </div>
-    </a>
-  </section>
-  ` : ''}
 ${principal ? `
 <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-bottom:35px">
 
